@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace AMB.MANAGEMENT
+namespace Ambulance_mng_db
 {
     public partial class Form1 : Form
     {
@@ -17,22 +17,19 @@ namespace AMB.MANAGEMENT
             InitializeComponent();
         }
 
-        private void Form1_Load(object sender, EventArgs e)
+        private void ambulanceBindingNavigatorSaveItem_Click(object sender, EventArgs e)
         {
+            this.Validate();
+            this.ambulanceBindingSource.EndEdit();
+            this.tableAdapterManager.UpdateAll(this.ambulanceDataSet1);
 
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void Form1_Load(object sender, EventArgs e)
         {
-            {
-                {
-                    Form3 f2 = new Form3();
-                    f2.Show();
-                    Visible = false;
-                }
+            // TODO: This line of code loads data into the 'ambulanceDataSet1.Ambulance' table. You can move, or remove it, as needed.
+            this.ambulanceTableAdapter.Fill(this.ambulanceDataSet1.Ambulance);
 
-
-            }
         }
     }
 }
